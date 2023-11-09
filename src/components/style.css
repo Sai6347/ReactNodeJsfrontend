@@ -1,0 +1,38 @@
+.addbutton{
+    margin-left: 1100px;
+    margin-top: 250px;
+}
+.add{
+    background-color: aquamarine;
+}
+.getbutton{
+    margin-left: 1100px;
+    margin-top: 30px;
+}
+/* footer{
+    margin-top: 280px;
+} */
+.home{
+    margin-left: 1300px;
+    margin-top: -50px;
+    padding-bottom: 10px;
+}
+
+.bgd{
+    background-image: url('https://wallpaper-house.com/data/out/7/wallpaper2you_171801.jpg');
+    background-size: cover ;
+    background-repeat: no-repeat ;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+/* .form {
+    margin-left: 1100px;
+    margin-top: 250px;
+} */
+
+.heading{
+    color: antiquewhite;
+}
