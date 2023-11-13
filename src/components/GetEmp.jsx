@@ -50,6 +50,7 @@ const GetEmp = () => {
                   <th>Name</th>
                   <th>Mobile</th>
                   <th>Role</th>
+                  <th>Document</th>
                   <th rowSpan={2} className="text-center">Actions</th>
                 </tr>
               </thead>
@@ -60,6 +61,11 @@ const GetEmp = () => {
                     <td>{emp.name}</td>
                     <td>{emp.mobile}</td>
                     <td>{emp.role}</td>
+                    <td>
+                      <a href={base_url+`/getEmpDoc/${emp.id}`} target="_blank" rel="noopener noreferrer">
+                        View Document
+                      </a>
+                    </td>
                     <td><Link to={`/update/${emp.id}`}><button class="btn btn-info">Update</button></Link></td>
                     <td><button class="btn btn-danger" onClick={()=>handleDelete(emp.id)}>Delete</button></td>
                   </tr>

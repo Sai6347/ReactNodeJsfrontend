@@ -56,6 +56,7 @@ const AddEmp = () => {
     return(
 
         <div className="form">
+            <form>
             <h4 className="mb-4">Add Employee</h4>
             <div className="home">
                 <Link to="/home">
@@ -80,6 +81,7 @@ const AddEmp = () => {
             <div className="d-flex justify-content-center align-items-center">
                 <button onClick={handleClick} className="btn btn-primary">Add</button>
             </div>
+            </form>
         </div>
     )
 }

@@ -6,6 +6,7 @@ import "./style.css";
 
 const UpdateEmp = () =>{
     const [file, setFile] = useState(null);
+  const [fileContent, setFileContent] = useState(null);
 
     const [emp, setEmp] = useState({
         name : "",
@@ -44,7 +45,15 @@ const UpdateEmp = () =>{
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         setFile(selectedFile);
-    };
+    
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          
+          setFileContent(event.target.result);
+        };
+        
+        reader.readAsText(selectedFile);
+      };
 
     const handleClick = async (id) => {
         
@@ -92,6 +101,11 @@ const UpdateEmp = () =>{
             <div className="form-group">
                 <input type="file" onChange={handleFileChange} name="file" class="form-control mb-3" required/>
             </div>
+            {/* <div className="form-group">
+                {file && (
+                    <img src={URL.createObjectURL(file)} alt="Selected File" width="200" height="200" />
+                )}
+            </div> */}
             <div className="d-flex justify-content-center align-items-center">
                 <button onClick={handleClick} className="btn btn-primary">Update</button>
             </div>

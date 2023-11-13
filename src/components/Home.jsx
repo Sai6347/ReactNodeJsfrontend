@@ -56,8 +56,8 @@ const Home = () =>{
                     </Link>
                 </div>
                 <div className="getbutton">
-                    <Link to="/get">
-                        <button type="button" className="btn btn-light">Get Employee</button>
+                    <Link to="/login">
+                        <button type="button" className="btn btn-light">Login</button>
                     </Link>
                 </div>
             </div>
