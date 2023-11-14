@@ -99,7 +99,7 @@ const UpdateEmp = () =>{
                 <input type="text" value={emp.role} onChange={handleChange} name="role" class="form-control mb-3"/>
             </div>
             <div className="form-group">
-                <input type="file" onChange={handleFileChange} name="file" class="form-control mb-3" required/>
+                <input type="file" onChange={handleFileChange} name="file" class="form-control mb-3"/>
             </div>
             {/* <div className="form-group">
                 {file && (

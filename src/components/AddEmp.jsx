@@ -19,7 +19,7 @@ const AddEmp = () => {
         setEmp((prev) => ({...prev, [e.target.name]: e.target.value}));
     };
 
-
+    axios.defaults.withCredentials = true;
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         setFile(selectedFile);
@@ -42,6 +42,7 @@ const AddEmp = () => {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
+                withCredentials: true,
             });
 
             alert("Registration completed Successfully");

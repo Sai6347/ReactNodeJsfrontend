@@ -39,7 +39,7 @@ const GetEmp = () => {
           <h4 className="mb-4">Employee Info</h4>
           <div className="home">
                 <Link to="/home">
-                    <button type="button" class="btn btn-secondary">Home</button>
+                    <button type="button" className="btn btn-secondary">Home</button>
                 </Link>
             </div>
           <div className="emp">
