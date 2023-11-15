@@ -1,8 +1,8 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./components/Home"
 import GetEmp from "./components/GetEmp";
-import AddEmp from "./components/AddEmp";
-import UpdateEmp from "./components/UpdateEmp";
+import AddUser from "./components/AddUser";
+import UpdateUser from "./components/UpdateUser";
 import Login from "./components/Login";
 import Authentication from "./components/Authentication"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,8 +19,8 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/get" element={<GetEmp/>}/>
-          <Route path="/add" element={<AddEmp/>}/>
-          <Route path="/update/:id" element={<UpdateEmp/>}/>
+          <Route path="/add" element={<AddUser/>}/>
+          <Route path="/update/:id" element={<UpdateUser/>}/>
           <Route path="/auth" element={<Authentication/>}/>
         </Routes>
       </BrowserRouter>

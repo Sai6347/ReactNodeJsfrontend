@@ -1,22 +1,25 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-const AddEmp = () => {
-    const [user, setEmp] = useState({
-        name : "",
+const AddUser = () => {
+    const [user, setUser] = useState({
+        firstName : "",
+        lastName : "",
+        email : "",
         mobile : "",
-        role : "",
-        password : ""
+        password : "",
+        socialmedia : ""
+        // date : ""
     });
 
     const [file, setFile] = useState(null);
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleChange = (e) => {
-        setEmp((prev) => ({...prev, [e.target.name]: e.target.value}));
+        setUser((prev) => ({...prev, [e.target.name]: e.target.value}));
     };
 
     axios.defaults.withCredentials = true;
@@ -32,13 +35,17 @@ const AddEmp = () => {
         try {
     
             const formData = new FormData();
-            formData.append("name", user.name);
+            formData.append("firstName", user.firstName);
+            formData.append("lastName", user.lastName);
+            formData.append("email", user.email);
             formData.append("mobile", user.mobile);
-            formData.append("role", user.role);
-            formData.append("file", file); 
             formData.append("password", user.password);
+            formData.append("socialmedia", user.socialmedia);
+            // formData.append("date", user.date);
+            formData.append("file", file); 
+            
 
-            await axios.post(base_url+"/addEmp", formData, {
+            await axios.post(base_url+"/addUser", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -46,7 +53,7 @@ const AddEmp = () => {
             });
 
             alert("Registration completed Successfully");
-            navigate("/get");
+            // navigate("/get");
         } catch (err) {
             console.log(err);
         }
@@ -66,17 +73,27 @@ const AddEmp = () => {
                 </Link>
             </div>
             <div className="form-group">
-                <input type="text" placeholder="Enter Name" onChange={handleChange} name="name" className="form-control mb-3" required/>
+                <input type="text" placeholder=" First Name " onChange={handleChange} name="firstName" className="form-control mb-3" required/>
             </div>
             <div className="form-group">
-                <input type="text" placeholder="Enter Mobile No" onChange={handleChange} name="mobile" className="form-control mb-3" required/>
+                <input type="text" placeholder=" Last Name " onChange={handleChange} name="lastName" className="form-control mb-3" required/>
+            </div>
+            <div className="form-group">
+                <input type="email" placeholder=" Email " onChange={handleChange} name="email" className="form-control mb-3" required/>
+            </div>
+            <div className="form-group">
+                <input type="text" placeholder=" Mobile No " onChange={handleChange} name="mobile" className="form-control mb-3" required/>
             </div>
             <div className="form-group">
                 <input type="password" placeholder="Enter Password" onChange={handleChange} name="password" className="form-control mb-3" required/>
             </div>
             <div className="form-group">
-                <input type="text" placeholder="Enter Role" onChange={handleChange} name="role" className="form-control mb-3" required/>
+                <input type="text" placeholder=" Social Media Account " onChange={handleChange} name="socialmedia" className="form-control mb-3" />
             </div>
+            {/* <div className="form-group">
+                <label>Registration Date</label>
+                <input type="date" onChange={handleChange} name="date" className="form-control mb-3" required/>
+            </div> */}
             <div className="form-group">
                 <input type="file" onChange={handleFileChange} name="file" className="form-control mb-3" required/>
             </div>
@@ -89,4 +106,4 @@ const AddEmp = () => {
     )
 }
 
-export default AddEmp;
+export default AddUser;

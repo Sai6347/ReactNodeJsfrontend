@@ -4,11 +4,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-const UpdateEmp = () =>{
+const UpdateUser = () =>{
     const [file, setFile] = useState(null);
   const [fileContent, setFileContent] = useState(null);
 
-    const [emp, setEmp] = useState({
+    const [user, setUser] = useState({
         name : "",
         mobile : "",
         password:"",
@@ -21,25 +21,25 @@ const UpdateEmp = () =>{
     const navigate = useNavigate()
     const location = useLocation()
 
-    const empId = location.pathname.split("/")[2];
-    console.log("emp Id "+empId)
+    const userId = location.pathname.split("/")[2];
+    console.log("User Id "+userId)
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(base_url+`/getEmp/${empId}`);
+                const response = await axios.get(base_url+`/getEmp/${userId}`);
                 const data = response.data;
-                setEmp(data[0]); 
+                setUser(data[0]); 
             } catch (err) {
                 console.log(err);
             }
         }
 
         fetchData();
-    }, [empId]);
+    }, [userId]);
 
     const handleChange = (e) => {
-        setEmp((prev) => ({...prev, [e.target.name]: e.target.value}));
+        setUser((prev) => ({...prev, [e.target.name]: e.target.value}));
     };
 
     const handleFileChange = (e) => {
@@ -58,14 +58,14 @@ const UpdateEmp = () =>{
     const handleClick = async (id) => {
         
         const formData = new FormData();
-        formData.append("name", emp.name);
-        formData.append("mobile", emp.mobile);
-        formData.append("password", emp.password);
-        formData.append("role", emp.role);
+        formData.append("name", user.name);
+        formData.append("mobile", user.mobile);
+        formData.append("password", user.password);
+        formData.append("role", user.role);
         formData.append("file", file);
 
         try {
-            await axios.put(base_url+"/editEmp/" + empId, formData, {
+            await axios.put(base_url+"/editUser/" + userId, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -81,23 +81,23 @@ const UpdateEmp = () =>{
     return(
         <div className="d-flex justify-content-center align-items-center">
             <div className="p-3 rounded w-25">
-            <h4 className="mb-4">Edit Employee</h4>
+            <h4 className="mb-4">Update User</h4>
             <div className="home">
                 <Link to="/">
                     <button type="button" className="btn btn-secondary">Home</button>
                 </Link>
             </div>
             <div className="form-group">
-                <input type="text" value={emp.name} onChange={handleChange} name="name" class="form-control mb-3" required/>
+                <input type="text" value={user.name} onChange={handleChange} name="name" class="form-control mb-3" required/>
             </div>
             <div className="form-group">
-                <input type="text" value={emp.mobile} onChange={handleChange} name="mobile" class="form-control mb-3" required/>
+                <input type="text" value={user.mobile} onChange={handleChange} name="mobile" class="form-control mb-3" required/>
             </div>
             <div className="form-group">
-                <input type="password" value={emp.password} onChange={handleChange} name="password" class="form-control mb-3"/>
+                <input type="password" value={user.password} onChange={handleChange} name="password" class="form-control mb-3"/>
             </div>
             <div className="form-group">
-                <input type="text" value={emp.role} onChange={handleChange} name="role" class="form-control mb-3"/>
+                <input type="text" value={user.role} onChange={handleChange} name="role" class="form-control mb-3"/>
             </div>
             <div className="form-group">
                 <input type="file" onChange={handleFileChange} name="file" class="form-control mb-3"/>
@@ -115,4 +115,4 @@ const UpdateEmp = () =>{
     )
 }
 
-export default UpdateEmp;
+export default UpdateUser;
