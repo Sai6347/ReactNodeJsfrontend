@@ -66,7 +66,7 @@ const AddUser = () => {
         <div className="d-flex justify-content-center align-items-center">
             <div className="p-3 rounded w-25">
             <form>
-            <h4 className="mb-4">User Registration</h4>
+            <h4 className="mb-4">User SignUp</h4>
             <div className="home">
                 <Link to="/">
                     <button type="button" className="btn btn-secondary">Home</button>
