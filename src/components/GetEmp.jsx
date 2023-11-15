@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+// import Login from "./Login";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
 
 const GetEmp = () => {
 
     const [emp, setEmp] = useState([])
+    // const [token,setToken] = useState()
+    // if(!token)
+    // {
+    //   return <Login setToken={setToken}/>
+    // }
     const base_url = "http://localhost:8800";
 
     useEffect(() => {

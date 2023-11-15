@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <div>
-      <h2 className="text-center bg-info">Welcome to Employee Portal</h2>
+      <h2 className="text-center bg-info">Welcome to User Portal</h2>
       </div>
 
       <BrowserRouter>

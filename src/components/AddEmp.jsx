@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 const AddEmp = () => {
-    const [emp, setEmp] = useState({
+    const [user, setEmp] = useState({
         name : "",
         mobile : "",
         role : "",
@@ -32,11 +32,11 @@ const AddEmp = () => {
         try {
     
             const formData = new FormData();
-            formData.append("name", emp.name);
-            formData.append("mobile", emp.mobile);
-            formData.append("role", emp.role);
+            formData.append("name", user.name);
+            formData.append("mobile", user.mobile);
+            formData.append("role", user.role);
             formData.append("file", file); 
-            formData.append("password", emp.password);
+            formData.append("password", user.password);
 
             await axios.post(base_url+"/addEmp", formData, {
                 headers: {
@@ -53,13 +53,13 @@ const AddEmp = () => {
     };
     
 
-    console.log(emp);
+    console.log(user);
     return(
 
         <div className="d-flex justify-content-center align-items-center">
             <div className="p-3 rounded w-25">
             <form>
-            <h4 className="mb-4">Add Employee</h4>
+            <h4 className="mb-4">User Registration</h4>
             <div className="home">
                 <Link to="/">
                     <button type="button" className="btn btn-secondary">Home</button>
