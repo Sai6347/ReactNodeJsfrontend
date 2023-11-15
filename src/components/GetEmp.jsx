@@ -35,10 +35,10 @@ const GetEmp = () => {
   }
 
     return (
-        <div className="">
+        <div className="justify-content-center align-items-center">
           <h4 className="mb-4">Employee Info</h4>
           <div className="home">
-                <Link to="/home">
+                <Link to="/">
                     <button type="button" className="btn btn-secondary">Home</button>
                 </Link>
             </div>

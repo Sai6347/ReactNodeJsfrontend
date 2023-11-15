@@ -56,11 +56,12 @@ const AddEmp = () => {
     console.log(emp);
     return(
 
-        <div className="form">
+        <div className="d-flex justify-content-center align-items-center">
+            <div className="p-3 rounded w-25">
             <form>
             <h4 className="mb-4">Add Employee</h4>
             <div className="home">
-                <Link to="/home">
+                <Link to="/">
                     <button type="button" className="btn btn-secondary">Home</button>
                 </Link>
             </div>
@@ -83,6 +84,7 @@ const AddEmp = () => {
                 <button onClick={handleClick} className="btn btn-primary">Add</button>
             </div>
             </form>
+            </div>
         </div>
     )
 }

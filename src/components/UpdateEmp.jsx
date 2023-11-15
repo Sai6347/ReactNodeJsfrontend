@@ -79,10 +79,11 @@ const UpdateEmp = () =>{
 
 
     return(
-        <div className="form">
+        <div className="d-flex justify-content-center align-items-center">
+            <div className="p-3 rounded w-25">
             <h4 className="mb-4">Edit Employee</h4>
             <div className="home">
-                <Link to="/home">
+                <Link to="/">
                     <button type="button" className="btn btn-secondary">Home</button>
                 </Link>
             </div>
@@ -108,6 +109,7 @@ const UpdateEmp = () =>{
             </div> */}
             <div className="d-flex justify-content-center align-items-center">
                 <button onClick={handleClick} className="btn btn-primary">Update</button>
+            </div>
             </div>
         </div>
     )

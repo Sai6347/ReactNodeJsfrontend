@@ -13,7 +13,7 @@ const Login = () => {
 
     const base_url = "http://localhost:8800";
     const navigate = useNavigate();
-
+    axios.defaults.withCredentials = true;
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
@@ -25,7 +25,7 @@ const Login = () => {
                 }
             );
             console.log("Successfully logged in");  
-            navigate("/get");
+            navigate("/auth");
         } catch (err) {
             console.log(err);
             alert('Please enter Valid Credentials');
@@ -33,11 +33,12 @@ const Login = () => {
     };
 
     return (
-        <div className="form">
+        <div className="d-flex justify-content-center align-items-center">
+            <div className="p-3 rounded w-25">
             <form>
-                <h3 className="mb-4">Login</h3>
+                <h3 className="d-flex justify-content-center align-items-center">Login</h3>
                 <div className="home">
-                    <Link to="/home">
+                    <Link to="/">
                         <button type="button" className="btn btn-secondary">Home</button>
                     </Link>
                 </div>
@@ -51,6 +52,7 @@ const Login = () => {
                     <button onClick={handleLogin} className="btn btn-primary">Login</button>
                 </div>
             </form>
+            </div>
         </div>
     );
 }

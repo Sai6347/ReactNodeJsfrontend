@@ -4,6 +4,7 @@ import GetEmp from "./components/GetEmp";
 import AddEmp from "./components/AddEmp";
 import UpdateEmp from "./components/UpdateEmp";
 import Login from "./components/Login";
+import Authentication from "./components/Authentication"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -15,16 +16,17 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<Home/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/get" element={<GetEmp/>}/>
           <Route path="/add" element={<AddEmp/>}/>
           <Route path="/update/:id" element={<UpdateEmp/>}/>
+          <Route path="/auth" element={<Authentication/>}/>
         </Routes>
       </BrowserRouter>
-      <div className="footer">
+      {/* <div className="footer">
         <p>&copy </p>
-      </div>
+      </div> */}
     </div>
   );
 }
