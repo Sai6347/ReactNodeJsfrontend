@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./style.css";
 
 const AddUser = () => {
@@ -16,7 +16,7 @@ const AddUser = () => {
     });
 
     const [file, setFile] = useState(null);
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setUser((prev) => ({...prev, [e.target.name]: e.target.value}));
@@ -53,7 +53,7 @@ const AddUser = () => {
             });
 
             alert("Registration completed Successfully");
-            // navigate("/get");
+            navigate("/add");
         } catch (err) {
             console.log(err);
         }
@@ -66,12 +66,7 @@ const AddUser = () => {
         <div className="d-flex justify-content-center align-items-center">
             <div className="p-3 rounded w-25">
             <form>
-            <h4 className="mb-4">User SignUp</h4>
-            <div className="home">
-                <Link to="/">
-                    <button type="button" className="btn btn-secondary">Home</button>
-                </Link>
-            </div>
+            <h4 className="mb-4">User Signup</h4>
             <div className="form-group">
                 <input type="text" placeholder=" First Name " onChange={handleChange} name="firstName" className="form-control mb-3" required/>
             </div>

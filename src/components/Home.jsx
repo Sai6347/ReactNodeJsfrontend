@@ -52,12 +52,12 @@ const Home = () =>{
             <div className="">
                 <div className="addbutton">
                     <Link to="/add">
-                        <button type="button" className="btn btn-success ">Add Employee</button>
+                        <button type="button" className="btn btn-success ">Add User</button>
                     </Link>
                 </div>
                 <div className="getbutton">
-                    <Link to="/login">
-                        <button type="button" className="btn btn-light">Login</button>
+                    <Link to="/get">
+                        <button type="button" className="btn btn-light">Get UserData</button>
                     </Link>
                 </div>
             </div>

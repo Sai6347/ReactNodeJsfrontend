@@ -5,33 +5,29 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
 
-const GetEmp = () => {
+const GetUser = () => {
 
-    const [emp, setEmp] = useState([])
-    // const [token,setToken] = useState()
-    // if(!token)
-    // {
-    //   return <Login setToken={setToken}/>
-    // }
+    const [user, setUser] = useState([])
+
     const base_url = "http://localhost:8800";
 
     useEffect(() => {
-        const getAllEmp = async () =>{
+        const getAllUser = async () =>{
             try{
-                const res = await axios.get(base_url+"/getEmp")
-                setEmp(res.data);
+                const res = await axios.get(base_url+"/getUser")
+                setUser(res.data);
                 console.log(res)
             }
             catch(err){
                 console.log(err)
             }
         }
-        getAllEmp(); 
+        getAllUser(); 
     }, []);
 
     const handleDelete = async (id) => {
       try{
-          await axios.delete(base_url+"/deleteEmp/"+id, emp)
+          await axios.delete(base_url+"/deleteEmp/"+id, user)
           alert("Deleted Successfully")
           window.location.reload()
       }
@@ -42,38 +38,41 @@ const GetEmp = () => {
 
     return (
         <div className="justify-content-center align-items-center">
-          <h4 className="mb-4">Employee Info</h4>
-          <div className="home">
-                <Link to="/">
-                    <button type="button" className="btn btn-secondary">Home</button>
-                </Link>
-            </div>
-          <div className="emp">
+          <h4 className="mb-4">User Information</h4>
+          <div className="">
             <table className="table table-hover">
               <thead>
                 <tr className="thead-light">
                   <th>Id</th>  
-                  <th>Name</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
                   <th>Mobile</th>
+                  <th>Social Media</th>
                   <th>Role</th>
+                  <th>Registered Date</th>
                   <th>Document</th>
                   <th rowSpan={2} className="text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {emp.map((emp) => (
-                  <tr key={emp.id}>
-                    <td>{emp.id}</td>
-                    <td>{emp.name}</td>
-                    <td>{emp.mobile}</td>
-                    <td>{emp.role}</td>
+                {user.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.id}</td>
+                    <td>{user.first_name}</td>
+                    <td>{user.last_name}</td>
+                    <td>{user.email}</td>
+                    <td>{user.mobile_number}</td>
+                    <td>{user.social_media_account}</td>
+                    <td>{user.register_date}</td>
+                    <td>{user.role}</td>
                     <td>
-                      <a href={base_url+`/getEmpDoc/${emp.id}`} target="_blank" rel="noopener noreferrer">
+                      <a href={base_url+`/getUserDoc/${user.id}`} target="_blank" rel="noopener noreferrer">
                         View Document
                       </a>
                     </td>
-                    <td><Link to={`/update/${emp.id}`}><button class="btn btn-info">Update</button></Link></td>
-                    <td><button class="btn btn-danger" onClick={()=>handleDelete(emp.id)}>Delete</button></td>
+                    <td><Link to={`/update/${user.id}`}><button class="btn btn-info">Update</button></Link></td>
+                    <td><button class="btn btn-danger" onClick={()=>handleDelete(user.id)}>Delete</button></td>
                   </tr>
                 ))}
               </tbody>
@@ -90,4 +89,4 @@ const GetEmp = () => {
     
 }
 
-export default GetEmp;
+export default GetUser;
