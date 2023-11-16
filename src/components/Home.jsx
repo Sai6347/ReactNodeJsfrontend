@@ -6,15 +6,7 @@ import "./style.css";
 // import { useNavigate } from "react-router-dom";
 
 const Home = () =>{
-
-    // const BackgroundImage = styled.div`
-    //     background-image: url('https://wallpaper-house.com/data/out/7/wallpaper2you_171801.jpg') ;
-    //     background-size:cover ;
-    //     width:100%;
-    //     height:100vh;
-    //     background-repeat: no-repeat ;
-    // `;
-
+    
     // const [emp, setEmp] = useState({
     //     mobile : "",
     //     password : ""
@@ -46,7 +38,7 @@ const Home = () =>{
     // };
 
     return(
-        // <BackgroundImage>
+        
         <div className="bgd">
             <h4>Home Page</h4>
             <div className="">
@@ -56,8 +48,8 @@ const Home = () =>{
                     </Link>
                 </div>
                 <div className="getbutton">
-                    <Link to="/get">
-                        <button type="button" className="btn btn-light">Get UserData</button>
+                    <Link to="/login">
+                        <button type="button" className="btn btn-light">Login</button>
                     </Link>
                 </div>
             </div>
@@ -81,7 +73,7 @@ const Home = () =>{
             </footer>
         </div>
         
-        /* </BackgroundImage> */
+        
         );
 }
 

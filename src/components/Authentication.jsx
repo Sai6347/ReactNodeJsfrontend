@@ -2,63 +2,89 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Authentication() {
+const Authentication = () => {
 
     const [auth, setAuth] = useState(false);
-    const [message, setMessage] =useState('');
     const [name, setName] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:8800')
-        .then(res => {
-            console.log(res);
-            if(res.data === "Success") {
-                setAuth(true)
-                setName(res.data.name);
-                console.log("Successs");
-                navigate('/get')
-            }else{
-                setAuth(false)
-                setMessage(res.data.Error)
-            }
-        })
-        .catch(err => {
-            console.error(err);
-        // .then(err => console.log(err))
-        });
+        const checkAuth = async () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            try {
+                const response = await axios.get('http://localhost:8800', {
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                  },
+                });
+      
+                if (response.data === "Success") {
+                  setAuth(true);
+                  setName(response.data.name);
+                  navigate('/auth');
+
+                //   setTimeout(() => {
+                //     localStorage.removeItem("token");
+                //     setAuth(false);
+                //     setName('');
+                //   }, 60000);
+
+                } else {
+                  setAuth(false);
+                  
+                }
+              } catch (error) {
+                console.error(error);
+                setAuth(false);
+              }
+        } else {
+            setAuth(false);
+        }
+        };  
+        checkAuth();
     }, [navigate])
 
     const handleLogout = () => {
-        
-        document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    
+        localStorage.removeItem("token");
         setAuth(false);
-        // setName('');
+        setName('');
     };
 
-    return(
-        <div className="mb-4">{
-
-            auth ?
-            <div>
-            <h2>You are Authorised - {name}</h2>
-            <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
-            {/* <div className="home">
-                <Link to="/get">
-                    <button type="button" className="btn btn-secondary">Get Data</button>
-                </Link>
-                </div> */}
-            </div>
-            :
-            <div>
-                <h3>{message}</h3>
-                <h3>Login Now</h3>
-                <Link to="/login" className="btn btn-primary"> Login </Link>
-            </div>
+    const isTokenExpired = () => {
+        const token = localStorage.getItem('token');
+    
+        if (!token) {
+          return true; 
         }
+    
+        const decodedToken = JSON.parse(atob(token.split('.')[1])); 
+    
+        return decodedToken.exp * 1000 < Date.now(); 
+      };
+
+    return(
+        <div className="mb-4">
+      {auth ? (
+        <div>
+          <h2>You are Authorized - {name}</h2>
+          <button className="btn btn-danger" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
-    )
-}
+      ) : (
+        isTokenExpired() && (
+          <div>
+            <h4>Token Expired...Login Now</h4>
+            
+            <Link to="/login" className="btn btn-primary">
+              Login
+            </Link>
+          </div>
+        )
+      )}
+    </div>
+    );
+};
 
 export default Authentication;
