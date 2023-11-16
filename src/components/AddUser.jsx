@@ -63,8 +63,8 @@ const AddUser = () => {
     console.log(user);
     return(
 
-        <div className="d-flex justify-content-center align-items-center">
-            <div className="p-3 rounded w-25">
+        <div className="d-flex justify-content-center align-items-center ">
+            <div className="p-3 rounded w-25 bgd1">
             <form>
             <h4 className="mb-4">User Signup</h4>
             <div className="form-group">
@@ -90,7 +90,7 @@ const AddUser = () => {
                 <input type="date" onChange={handleChange} name="date" className="form-control mb-3" required/>
             </div> */}
             <div className="form-group">
-                <input type="file" onChange={handleFileChange} name="file" className="form-control mb-3" required/>
+                <input type="file" onChange={handleFileChange} name="file" className="form-control mb-3" required multiple/>
             </div>
             <div className="d-flex justify-content-center align-items-center">
                 <button onClick={handleClick} className="btn btn-primary">Add</button>

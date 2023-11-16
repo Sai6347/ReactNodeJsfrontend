@@ -32,7 +32,6 @@ const Login = () => {
                 localStorage.setItem("token", token);
                 console.log("Successfully logged in");  
                 navigate("/auth");
-                
               } else {
 
                 console.error("Login failed", response.data.message);

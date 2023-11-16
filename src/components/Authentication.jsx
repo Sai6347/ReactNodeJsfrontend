@@ -24,11 +24,6 @@ const Authentication = () => {
                   setName(response.data.name);
                   navigate('/auth');
 
-                //   setTimeout(() => {
-                //     localStorage.removeItem("token");
-                //     setAuth(false);
-                //     setName('');
-                //   }, 60000);
 
                 } else {
                   setAuth(false);
