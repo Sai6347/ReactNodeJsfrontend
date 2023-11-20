@@ -59,22 +59,28 @@ const Authentication = () => {
       };
 
     return(
-        <div className="mb-4">
-      {auth ? (
-        <div>
-          <h2>You are Authorized - {name}</h2>
-          <button className="btn btn-danger" onClick={handleLogout}>
-            Logout
-          </button>
-        </div>
-      ) : (
-        isTokenExpired() && (
-          <div>
-            <h4>Token Expired...Login Now</h4>
-            
-            <Link to="/login" className="btn btn-primary">
-              Login
-            </Link>
+        <div className="d-flex justify-content-center align-items-center">
+          {auth ? (
+            <div>
+              <h2>You are Authorized - {name}</h2>
+              <button className="btn btn-danger" onClick={handleLogout}>
+                Logout
+              </button>
+              <div className="addproperty">
+                <Link to="/addprop">
+                    <button type="button" className="btn btn-success ">Add Property</button>
+                </Link>
+            </div>
+
+            </div>
+          ) : (
+            isTokenExpired() && (
+              <div>
+                <h4>Token Expired...Login Now</h4>
+                
+                <Link to="/login" className="btn btn-primary">
+                  Login
+                </Link>
           </div>
         )
       )}

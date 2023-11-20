@@ -43,13 +43,13 @@ const Home = () =>{
             <h4>Home Page</h4>
             <div className="">
                 <div className="addbutton">
-                    <Link to="/add">
+                    <Link to="/signup">
                         <button type="button" className="btn btn-success ">Add User</button>
                     </Link>
                 </div>
                 <div className="getbutton">
                     <Link to="/login">
-                        <button type="button" className="btn btn-light">Login</button>
+                        <button type="button" className="btn btn-light">Login User</button>
                     </Link>
                 </div>
             </div>

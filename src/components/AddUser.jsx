@@ -44,7 +44,9 @@ const AddUser = () => {
             // formData.append("date", user.date);
             formData.append("file", file); 
             
-
+            console.log("***************");
+            console.log(formData);
+            console.log("%%%%%%%%%%%%%%");
             await axios.post(base_url+"/addUser", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -53,14 +55,25 @@ const AddUser = () => {
             });
 
             alert("Registration completed Successfully");
-            navigate("/add");
+            navigate("/signup");
         } catch (err) {
             console.log(err);
         }
     };
+
+    const handleReset = () => {
+        setUser({
+          firstName: '',
+          lastName: '',
+          email: '',
+          mobile: '',
+          password: '',
+          socialmedia: '',
+        });
+      };
     
 
-    console.log(user);
+    // console.log(user);
     return(
 
         <div className="d-flex justify-content-center align-items-center ">
@@ -94,7 +107,9 @@ const AddUser = () => {
             </div>
             <div className="d-flex justify-content-center align-items-center">
                 <button onClick={handleClick} className="btn btn-primary">Add</button>
+                <button type="reset" className="btn btn-secondary btn-reset" onClick={handleReset}>Reset</button>
             </div>
+
             </form>
             </div>
         </div>

@@ -1,12 +1,12 @@
 .addbutton{
-    margin-left: 1100px;
+    margin-left: 1200px;
     margin-top: 250px;
 }
 .add{
     background-color: aquamarine;
 }
 .getbutton{
-    margin-left: 1100px;
+    margin-left: 1200px;
     margin-top: 30px;
 }
 /* footer{
@@ -35,4 +35,18 @@
 
 .heading{
     color: antiquewhite;
+}
+
+.btn-reset{
+    margin-left: 30px;
+}
+
+.addproperty{
+    margin-left: 1200px;
+    margin-top: -30px;
+}
+
+
+footer {
+ text-align: center;
 }
