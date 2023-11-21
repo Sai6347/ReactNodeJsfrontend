@@ -12,7 +12,6 @@ const AddUser = () => {
         mobile : "",
         password : "",
         socialmedia : ""
-        // date : ""
     });
 
     const [file, setFile] = useState(null);
@@ -41,12 +40,8 @@ const AddUser = () => {
             formData.append("mobile", user.mobile);
             formData.append("password", user.password);
             formData.append("socialmedia", user.socialmedia);
-            // formData.append("date", user.date);
             formData.append("file", file); 
-            
-            console.log("***************");
-            console.log(formData);
-            console.log("%%%%%%%%%%%%%%");
+        
             await axios.post(base_url+"/addUser", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -55,7 +50,7 @@ const AddUser = () => {
             });
 
             alert("Registration completed Successfully");
-            navigate("/signup");
+            navigate("/login");
         } catch (err) {
             console.log(err);
         }
@@ -98,10 +93,6 @@ const AddUser = () => {
             <div className="form-group">
                 <input type="text" placeholder=" Social Media Account " onChange={handleChange} name="socialmedia" className="form-control mb-3" />
             </div>
-            {/* <div className="form-group">
-                <label>Registration Date</label>
-                <input type="date" onChange={handleChange} name="date" className="form-control mb-3" required/>
-            </div> */}
             <div className="form-group">
                 <input type="file" onChange={handleFileChange} name="file" className="form-control mb-3" required multiple/>
             </div>

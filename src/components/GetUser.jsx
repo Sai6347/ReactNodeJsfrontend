@@ -51,7 +51,7 @@ const GetUser = () => {
                   <th>Social Media</th>
                   <th>Role</th>
                   <th>Registered Date</th>
-                  <th>Document</th>
+                  <th>Profile Picture</th>
                   <th rowSpan={2} className="text-center">Actions</th>
                 </tr>
               </thead>
@@ -68,7 +68,7 @@ const GetUser = () => {
                     <td>{user.role}</td>
                     <td>
                       <a href={base_url+`/getUserDoc/${user.id}`} target="_blank" rel="noopener noreferrer">
-                        View Document
+                        View Image
                       </a>
                     </td>
                     <td><Link to={`/update/${user.id}`}><button class="btn btn-info">Update</button></Link></td>

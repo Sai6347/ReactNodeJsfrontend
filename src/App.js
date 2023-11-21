@@ -7,6 +7,7 @@ import Authentication from "./components/Authentication";
 import AddProperty from "./components/AddProperty";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GetUser from "./components/GetUser";
+import GetProperty from "./components/GetProperty";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/update/:id" element={<UpdateUser/>}/>
           <Route path="/auth" element={<Authentication/>}/>
           <Route path="/addprop" element={<AddProperty/>}/>
+          <Route path="/getProp" element={<GetProperty/>}/>
         </Routes>
       </BrowserRouter>
 

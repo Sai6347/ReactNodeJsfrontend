@@ -1,18 +1,35 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from 'react-router-dom';
 
 const AddProperty = (props) => {
   const [property, setProperty] = useState({
+    userId:"",
     propertyType: "",
     propertyDesc: "",
-    streetAddress: "",
+    street: "",
+    city:"",
+    state:"",
+    country:"",
+    zipcode:"",
+    bedrooms:"",
+    bathrooms:"",
+    availableDate:"",
+    availabilityStatus:"",
+    units:"",
+    location:""
   });
   const [file, setFile] = useState(null);
   const base_url = "http://localhost:8800";
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setProperty((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
   };
 
   const handleClick = async (e) => {
@@ -20,20 +37,32 @@ const AddProperty = (props) => {
     try {
 
         const formData = new FormData();
-        formData.append("firstName", property.firstName);
-       
-        // formData.append("file", file); 
+        formData.append("userId", property.userId);
+        formData.append("propertyType", property.propertyType);
+        formData.append("propertyDesc", property.propertyDesc);
+        formData.append("street", property.street);
+        formData.append("city", property.city);
+        formData.append("state", property.state);
+        formData.append("country", property.country);
+        formData.append("zipcode", property.zipcode);
+        formData.append("bedrooms", property.bedrooms);
+        formData.append("bathrooms", property.bathrooms);
+        formData.append("availableDate", property.availableDate);
+        formData.append("availabilityStatus", property.availabilityStatus);
+        formData.append("units", property.units);
+        formData.append("location", property.location);
+        formData.append("file", file); 
         
 
-        await axios.post(base_url+"/addUser", formData, {
+        await axios.post(base_url+"/addProperty", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
             withCredentials: true,
         });
 
-        alert("Registration completed Successfully");
-        // navigate("/add");
+        alert("Property Registered Successfully");
+        navigate("/addprop");
         } catch (err) {
         console.log(err);
     }
@@ -44,10 +73,7 @@ const AddProperty = (props) => {
         });
       };
     
-      const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
-        setFile(selectedFile);
-    };
+      
 
     
   return (
@@ -61,6 +87,7 @@ const AddProperty = (props) => {
             <label>Property Registration</label>
             <div className="form-group">
                 <select onChange={handleChange} name="propertyType" className="form-control mb-3" required>
+                <option value=""> Select </option>
                 <option value="apartment">Flat or Apartment</option>
                 <option value="singleFamily">Single-Family Homes</option>
                 <option value="condonium">Condominium</option>
@@ -104,6 +131,7 @@ const AddProperty = (props) => {
             <label>Availabilty Status</label>
             <div className="form-group">
                 <select onChange={handleChange} name="availabilityStatus" className="form-control mb-3" required >
+                <option value=""> Select </option>
                 <option value="available">Available</option>
                 <option value="pending">Pending</option>
                 <option value="rented">Rented</option>

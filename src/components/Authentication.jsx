@@ -66,11 +66,21 @@ const Authentication = () => {
               <button className="btn btn-danger" onClick={handleLogout}>
                 Logout
               </button>
+              <div className="d-flex justify-content-center align-items-center">
+                <Link to="/get">
+                    <button type="button" className="btn btn-success ">Get UserData</button>
+                </Link>
+              </div>
               <div className="addproperty">
                 <Link to="/addprop">
                     <button type="button" className="btn btn-success ">Add Property</button>
                 </Link>
-            </div>
+              </div>
+              <div className="d-flex justify-content-center align-items-center">
+                <Link to="/getProp">
+                    <button type="button" className="btn btn-success ">Get Property</button>
+                </Link>
+              </div>
 
             </div>
           ) : (

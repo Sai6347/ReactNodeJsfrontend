@@ -28,7 +28,7 @@ const Login = () => {
             if (response.data.status === "Success") {
                 console.log("Success. Response Data: ", response.data);
                 const token = response.data.token;
-                console.log("token : "+token);
+                // console.log("token : "+token);
                 localStorage.setItem("token", token);
                 console.log("Successfully logged in");  
                 navigate("/auth");
