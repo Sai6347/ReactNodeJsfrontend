@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
 
@@ -37,6 +37,11 @@ const Getproperty = () => {
 
     return (
         <div className="justify-content-center align-items-center">
+          <div className="backBtnget">
+                <Link to="/auth">
+                    <button type="button" className="btn btn-outline-secondary">Back</button>
+                </Link>
+            </div>
           <h4 className="mb-4">Property Information</h4>
           <div className="">
             <table className="table table-hover">
@@ -72,10 +77,10 @@ const Getproperty = () => {
                     <td>{property.available_date_from}</td>
                     <td>{property.location}</td>
                     <td>
-                    <a href={base_url+`/getPropertyImg/${property.id}`} target="_blank" rel="noopener noreferrer">
+                    <a href={base_url+`/getPropertyImg/${property.property_images}`} target="_blank" rel="noopener noreferrer">
                     <img
-                        src={base_url + `/getPropertyImg/${property.id}`}
-                        alt={`Property ${property.id}`}
+                        src={base_url + `/getPropertyImg/${property.property_images}`}
+                        alt={`Property ${property.property_images}`}
                         style={{ maxWidth: '85px', maxHeight: '55px', borderRadius: '10px' }}
                     />
                     </a>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const AddProperty = (props) => {
   const [property, setProperty] = useState({
@@ -62,7 +62,7 @@ const AddProperty = (props) => {
         });
 
         alert("Property Registered Successfully");
-        navigate("/addprop");
+        navigate("/auth");
         } catch (err) {
         console.log(err);
     }
@@ -77,8 +77,13 @@ const AddProperty = (props) => {
 
     
   return (
-    <div className="d-flex justify-content-center align-items-center ">
+    <div className="d-flex justify-content-center align-items-center bgdProperty">
       <div className="p-5 w-50">
+        <div className="backBtn">
+            <Link to="/auth">
+                <button type="button" className="btn btn-outline-secondary">Back</button>
+            </Link>
+        </div>
         <form>
             <h4 className="mb-4">Add Property</h4>
             <div className="form-group">
@@ -148,7 +153,7 @@ const AddProperty = (props) => {
                 <input type="file" onChange={handleFileChange} name="file" className="form-control mb-3" required multiple/>
                 </div>
             <div className="d-flex justify-content-center align-items-center">
-                <button onClick={handleClick} className="btn btn-primary">Add</button>
+                <button onClick={handleClick} className="btn btn-success">Add</button>
                 <button type="reset" className="btn btn-secondary btn-reset" onClick={handleReset}>Reset</button>
             </div>
         </form>

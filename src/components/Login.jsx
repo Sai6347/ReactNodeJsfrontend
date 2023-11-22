@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
@@ -43,10 +43,15 @@ const Login = () => {
     };
 
     return (
-        <div className="d-flex justify-content-center align-items-center">
-            <div className="p-3 rounded w-25">
+        <div className="d-flex justify-content-center bgdLogin ">
+            <div className="p-3 rounded w-25 login">
+            <div className="backBtn">
+                <Link to="/">
+                    <button type="button" className="btn btn-outline-secondary">Back</button>
+                </Link>
+            </div>
             <form>
-                <h3 className="d-flex justify-content-center align-items-center">Login</h3>
+                <h3 className="">Login</h3>
                 {/* <div className="home">
                     <Link to="/">
                         <button type="button" className="btn btn-secondary">Home</button>

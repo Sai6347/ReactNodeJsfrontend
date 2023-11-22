@@ -19,15 +19,62 @@
 }
 
 .bgd{
-    background-image: url('https://wallpaper-house.com/data/out/7/wallpaper2you_171801.jpg');
+    background-image: url('https://cdn.pixabay.com/photo/2021/01/26/18/05/city-5952467_1280.jpg');
     background-size: cover ;
     background-repeat: no-repeat ;
     box-sizing: border-box;
     overflow: hidden;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
 }
 
+.bgdUser{
+    background-image: url('https://cdn.pixabay.com/photo/2017/10/12/22/17/business-2846221_1280.jpg');
+    background-size: cover ;
+    background-repeat: no-repeat ;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 90vh;
+}
+
+.bgdLogin{
+    background-image: url('https://cdn.pixabay.com/photo/2019/01/28/11/56/registration-3960205_1280.jpg');
+    background-size: cover ;
+    background-repeat: no-repeat ;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 90vh;
+}
+
+.bgdAuth{
+    background-image: url('https://localmedia.org/wp-content/uploads/2023/04/2FA-PSA.png');
+    background-size: cover ;
+    background-repeat: no-repeat ;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 90vh;
+}
+
+.bgdProperty{
+    background-image: url('https://www.shutterstock.com/image-photo/abstract-blur-exhibition-hall-background-600nw-1017463912.jpg');
+    background-size: cover ;
+    background-repeat: no-repeat ;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.backBtn{
+    margin-left: 750px;
+}
+
+.backBtnget{
+    margin-left: 1250px;
+}
 /* .form {
     margin-left: 1100px;
     margin-top: 250px;

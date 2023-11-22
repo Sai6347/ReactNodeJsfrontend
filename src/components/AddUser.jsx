@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 const AddUser = () => {
@@ -71,8 +71,13 @@ const AddUser = () => {
     // console.log(user);
     return(
 
-        <div className="d-flex justify-content-center align-items-center ">
+        <div className="d-flex justify-content-center align-items-center bgdUser">
             <div className="p-3 rounded w-25 bgd1">
+            <div className="backBtn">
+                <Link to="/">
+                    <button type="button" className="btn btn-outline-secondary">Back</button>
+                </Link>
+            </div>
             <form>
             <h4 className="mb-4">User Signup</h4>
             <div className="form-group">

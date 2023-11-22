@@ -25,7 +25,7 @@ const GetUser = () => {
         getAllUser(); 
     }, []);
 
-    const handleDelete = async (id) => {
+  /*}  const handleDelete = async (id) => {
       try{
           await axios.delete(base_url+"/deleteEmp/"+id, user)
           alert("Deleted Successfully")
@@ -34,10 +34,15 @@ const GetUser = () => {
       catch(err){
           console.log(err);
       }
-  }
+  }*/
 
     return (
         <div className="justify-content-center align-items-center">
+          <div className="backBtnget">
+                <Link to="/auth">
+                    <button type="button" className="btn btn-outline-secondary">Back</button>
+                </Link>
+            </div>
           <h4 className="mb-4">User Information</h4>
           <div className="">
             <table className="table table-hover">
@@ -52,7 +57,7 @@ const GetUser = () => {
                   <th>Role</th>
                   <th>Registered Date</th>
                   <th>Profile Picture</th>
-                  <th rowSpan={2} className="text-center">Actions</th>
+                  {/* <th rowSpan={2} className="text-center">Actions</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -67,20 +72,27 @@ const GetUser = () => {
                     <td>{user.register_date}</td>
                     <td>{user.role}</td>
                     <td>
-                      <a href={base_url+`/getUserDoc/${user.id}`} target="_blank" rel="noopener noreferrer">
+                      {/* <a href={base_url+`/getUserDoc/${user.id}`} target="_blank" rel="noopener noreferrer">
                         View Image
-                      </a>
+                      </a> */}
+                      <a href={base_url+`/getUserDoc/${user.id}`} target="_blank" rel="noopener noreferrer">
+                    <img
+                        src={base_url + `/getUserDoc/${user.id}`}
+                        alt={`Property ${user.id}`}
+                        style={{ maxWidth: '50px', maxHeight: '50px', borderRadius: '50%' }}
+                    />
+                    </a>
                     </td>
-                    <td><Link to={`/update/${user.id}`}><button class="btn btn-info">Update</button></Link></td>
-                    <td><button class="btn btn-danger" onClick={()=>handleDelete(user.id)}>Delete</button></td>
+                    {/* <td><Link to={`/update/${user.id}`}><button class="btn btn-info">Update</button></Link></td>
+                    <td><button class="btn btn-danger" onClick={()=>handleDelete(user.id)}>Delete</button></td> */}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <div className="d-flex justify-content-center align-items-center">
-          <Link to="/add">
-            <button type="button" className="btn btn-outline-secondary">Add Employee</button>
+          <Link to="/signup">
+            <button type="button" className="btn btn-outline-secondary">Add User</button>
           </Link>
           </div>
         </div>
