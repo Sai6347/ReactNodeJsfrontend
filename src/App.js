@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       
       <header className="d-flex justify-content-center align-items-center display-4">
-        <img src="http://localhost:5173/src/assets/img/logos/logo_white.png" className="logo"
+        {/* <img src="http://localhost:5173/src/assets/img/logos/logo_white.png" className="logo"
         alt="logo"
-        style={{ maxWidth: '250px', maxHeight: 'auto', borderRadius: '10px' }}/>
-        {/* <h2>Welcome to PMS</h2> */}
+        style={{ maxWidth: '250px', maxHeight: 'auto', borderRadius: '10px' }}/> */}
+        <h2>Welcome to PMS</h2>
       </header>
       
 

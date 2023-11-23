@@ -78,8 +78,7 @@ const Getproperty = () => {
                     <td>{property.location}</td>
                     <td>
                     <a href={base_url+`/getPropertyImg/${property.property_images}`} target="_blank" rel="noopener noreferrer">
-                    <img
-                        src={base_url + `/getPropertyImg/${property.property_images}`}
+                    <img src={base_url + `/getPropertyImg/${property.property_images}`}
                         alt={`Property ${property.property_images}`}
                         style={{ maxWidth: '85px', maxHeight: '55px', borderRadius: '10px' }}
                     />
@@ -97,11 +96,6 @@ const Getproperty = () => {
               </tbody>
             </table>
           </div>
-          {/*<div className="d-flex justify-content-center align-items-center">
-          <Link to="/add">
-            <button type="button" className="btn btn-outline-secondary">Add Employee</button>
-          </Link>
-          </div>*/ }
         </div>
       );
       
