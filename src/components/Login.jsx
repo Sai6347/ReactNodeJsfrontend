@@ -4,12 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { eye, eyeOff } from 'react-icons-kit/feather';
+import { Icon } from 'react-icons-kit';
 
 const Login = () => {
-    const [user, setUser] = useState({
-        mobile: "",
-        password: ""
-    });
+    const [user, setUser] = useState({mobile:'', password: '', showPassword: false });
 
     const base_url = "http://localhost:8800";
     const navigate = useNavigate();
@@ -41,6 +40,11 @@ const Login = () => {
             alert('Please enter Valid Credentials');
         }
     };
+    
+
+    const handleTogglePassword = () => {
+        setUser((prevUser) => ({ ...prevUser, showPassword: !prevUser.showPassword }));
+    };
 
     return (
         <div className="d-flex justify-content-center bgdLogin ">
@@ -61,7 +65,14 @@ const Login = () => {
                     <input type="text" placeholder="Enter Mobile No" onChange={(e) => setUser({ ...user, mobile: e.target.value })} name="mobile" className="form-control mb-3" required />
                 </div>
                 <div className="form-group">
-                    <input type="password" placeholder="Enter Password" onChange={(e) => setUser({ ...user, password: e.target.value })} name="password" className="form-control mb-3" required />
+                <div className="password-input-wrapper">
+                    <input type={user.showPassword ? 'text' : 'password'} placeholder="Enter Password" onChange={(e) => setUser({ ...user, password: e.target.value })} name="password" className="form-control mb-3" required />
+                    <Icon
+                        icon={user.showPassword ? eyeOff : eye}
+                        onClick={handleTogglePassword}
+                        className="password-toggle-icon"
+                    />
+                </div>
                 </div>
                 <div className="d-flex justify-content-center align-items-center">
                     <button onClick={handleLogin} className="btn btn-primary">Login</button>
